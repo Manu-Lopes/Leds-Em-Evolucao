@@ -1,0 +1,62 @@
+// Declaração de variáveis
+byte lRe = 2;
+byte lOr = 3;
+byte lYe = 4;
+byte lGr = 5;
+byte lBl = 6;
+int potencia = A0;
+int valor = 0;
+
+// Inicialização das variáveis
+;void setup() {
+  	pinMode (lRe, OUTPUT);
+    pinMode (lOr, OUTPUT);
+    pinMode (lYe, OUTPUT);
+    pinMode (lGr, OUTPUT);
+    pinMode (lBl, OUTPUT);
+    pinMode (potencia, INPUT);
+  	Serial.begin(9600);
+}
+
+//Lógica de funcionamento
+;void loop() {
+ 	valor = analogRead(A0);
+    Serial.println(valor);
+
+    if (valor > 0 & valor < 205)	{
+        digitalWrite(lRe, 1);
+      	digitalWrite(lOr, 0);
+      	digitalWrite(lYe, 0);
+      	digitalWrite(lGr, 0);
+      	digitalWrite(lBl, 0);
+        }
+    if (valor >= 205 & valor < 410) {
+        digitalWrite(lRe, 0);
+      	digitalWrite(lOr, 1);
+      	digitalWrite(lYe, 0);
+      	digitalWrite(lGr, 0);
+      	digitalWrite(lBl, 0);
+        }
+    if (valor >= 410 & valor < 620) {
+        digitalWrite(lRe, 0);
+      	digitalWrite(lOr, 0);
+      	digitalWrite(lYe, 1);
+      	digitalWrite(lGr, 0);
+      	digitalWrite(lBl, 0);
+        }
+    if (valor >= 620 & valor < 840) {
+        digitalWrite(lRe, 0);
+      	digitalWrite(lOr, 0);
+      	digitalWrite(lYe, 0);
+      	digitalWrite(lGr, 1);
+      	digitalWrite(lBl, 0);
+        }
+    
+    if (valor > 840 & valor < 1023) { 
+        digitalWrite(lRe, 0);
+      	digitalWrite(lOr, 0);
+      	digitalWrite(lYe, 0);
+      	digitalWrite(lGr, 0);
+      	digitalWrite(lBl, 1);
+        }
+}
